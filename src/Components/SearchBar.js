@@ -1,11 +1,14 @@
 import * as React from "react";
 import { useState } from "react";
 import "./SearchBar.css";
+import photos from "../Photo_Posts/photos.json";
+import { Autocomplete } from "@mui/material";
+
 import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
-// import PhotosData from "../src/Photo_Posts/PhotosData";
-// import PhotoList from "../PhotoList";
-import photos from "../Photo_Posts/photos.json";
+import { InputAdornment } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import { TextField } from "@mui/material";
 
 function SearchBar({ placeholder /*photo*/ }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -29,32 +32,14 @@ function SearchBar({ placeholder /*photo*/ }) {
 
   return (
     <div className="search">
-      <div className="searchInputs">
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={wordEntered}
-          onChange={handleFilter}
-        />
-        <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CancelIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div>
-      </div>
-      {filteredData.length !== 0 && (
-        <div className="dataResult">
-          {filteredData.map((photo /*key*/) => {
-            return (
-              <a className="dataItem" href={photo.url}>
-                <p>{photo.title}</p>
-              </a>
-            );
-          })}
-        </div>
-      )}
+      <Autocomplete
+        id="free-solo-demo"
+        freeSolo
+        options={photos.map((photo) => photo.title)}
+        renderInput={(params) => (
+          <TextField {...params} label="search the dang album" />
+        )}
+      />
     </div>
   );
 }

@@ -12,23 +12,21 @@ searchInputs {
   font-size: 18px;
   height: 30px;
   width: 300px;
+  margin: 50px;
 }
 
 .searchIcon {
-  height: 60px;
-  width: 50px;
-  background-color: #92cbd1;
-  display: grid;
-  place-items: center;
-  color: white;
+  height: 30px;
+  width: 30px;
+  background-color: red;
+  /* display: grid; */
+  /* place-items: center; */
+  color: red;
 }
 
-/* .dataResult::-webkit-scrollbar {
-  background-color: #92cbd1;
-  color: black;
-  border-radius: 25px;
+.dataResult::-webkit-scrollbar {
   display: none;
-} */
+}
 
 .dataResult {
   margin-top: 5px;

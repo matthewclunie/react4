@@ -17,7 +17,7 @@ function App() {
   return (
     <StyledPaper className={classes.item}>
       <h1>Photo Albums JSON Project</h1>
-      <SearchBar placeholder="Search the dang album" data={photos} />
+      <SearchBar placeholder="Search the dang album..." data={photos} />
       <PhotoList details={photos} />
     </StyledPaper>
   );
